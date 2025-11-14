@@ -76,12 +76,6 @@ jobs:
           # Add all files in the downloaded artifact directory.
           git add -A firmware/
           
-          # Check if there are any changes staged (i.e., new or modified files)
-          if ! git diff --staged --quiet; then
-            echo "Committing new firmware artifacts..."
-            # Commit the changes with a clear message
-            git commit -m "chore(build): Update firmware artifacts for ${{ github.sha }}"
-
             git pull --rebase
             
             # Push the changes back to the original branch
