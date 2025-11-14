@@ -13,7 +13,7 @@
         zmk,physical-layout = &josefadamcik_sofle_layout;
     };
 
-    mock_kscan: kscan_0 {
+    mock_kscan: mock_kscan_0 {
         compatible = "zmk,kscan-mock";
         // wakeup-source;
         columns = <0>;
