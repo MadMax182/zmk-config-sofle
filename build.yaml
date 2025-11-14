@@ -1,8 +1,8 @@
 include:
 
   - board: nice_nano_v2
-    shield: sofle_right nice_oled
-    artifact-name: sofle_right
+    shield: sofle_right
+    artifact-name: sofle_right nice_oled
     snippet: zmk-usb-logging
 
   # peripheral_left
