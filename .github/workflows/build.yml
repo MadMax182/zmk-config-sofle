@@ -1,0 +1,123 @@
+name: Build and Commit Firmware Artifacts
+
+on: [push, workflow_dispatch]
+
+jobs:
+  # 1. Job to run the reusable ZMK workflow.
+  # This job is assumed to upload an artifact named 'firmware-artifacts'.
+  build:
+    name: Run ZMK Build
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    
+  # 2. Job to download the artifacts and commit them back to the repository.
+  commit_artifacts:
+    name: Commit Built Files to Repo
+    
+    # This job must wait for the 'build' job to succeed
+    needs: build 
+    runs-on: ubuntu-latest
+
+    # CRUCIAL: The GITHUB_TOKEN needs 'write' permission on 'contents'
+    # to be able to push new commits.
+    permissions:
+      contents: write
+
+    # Define an output to pass the list of generated files to the 'notify' job
+    outputs:
+      artifact_files: ${{ steps.list_files.outputs.file_list }} 
+
+    steps:
+      - name: Checkout Repository
+        # We need to check out the repo to push changes to it
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history is helpful for robust git operations
+          fetch-depth: 0 
+
+      - name: Download Artifacts
+        # Download the artifact that the reusable workflow created
+        uses: actions/download-artifact@v4
+        with:
+          name: firmware
+          # The path where the files will be downloaded (e.g., the root of the runner workspace)
+          path: firmware/ 
+
+      - name: List Artifact Files and Create Links
+        id: list_files
+        run: |
+          echo "Generating list of files..."
+          
+          # Define the base URL for raw file downloads, pointing to the committed 'firmware' directory
+          DOWNLOAD_URL="https://github.com/${{ github.repository }}/raw/${{ github.ref_name }}/firmware"
+          
+          # Find all files in the 'firmware/' directory and format them as Discord Markdown links
+          # %P removes the leading 'firmware/' from the filename for a clean list.
+          FILE_LIST=$(find firmware/ -type f -printf '%P\n' | while read -r filename; do
+              # FORMATTING CHANGE: Removed the leading spaces and the bullet point (' - ')
+              # Format: [**`filename`**](https://.../firmware/filename)
+              echo " - [**\`$filename\`**]($DOWNLOAD_URL/$filename)"
+          done)
+          
+          # Set the output variable 'file_list'
+          echo "file_list<<EOF" >> $GITHUB_OUTPUT
+          echo "**Generated Artifacts (Click to Download):**" >> $GITHUB_OUTPUT
+          echo "$FILE_LIST" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "File list stored in output."
+
+
+      - name: Commit and Push Artifacts
+        run: |
+          # Set up the Git user identity for the commit
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          
+          # Add all files in the downloaded artifact directory.
+          git add -A firmware/
+          
+          # Check if there are any changes staged (i.e., new or modified files)
+          if ! git diff --staged --quiet; then
+            echo "Committing new firmware artifacts..."
+            # Commit the changes with a clear message
+            git commit -m "chore(build): Update firmware artifacts for ${{ github.sha }}"
+
+            git pull --rebase
+            
+            # Push the changes back to the original branch
+            git push
+          else
+            echo "No changes detected in artifacts. Skipping commit."
+          fi
+          
+  # 3. Job to send a Discord notification upon completion.
+  notify:
+    name: Discord Notification
+    
+    # Needs both previous jobs to complete before running
+    needs: [build, commit_artifacts]
+    runs-on: ubuntu-latest
+    
+    # 'if: always()' ensures the notification is sent even if the build or commit failed
+    if: always() 
+
+    steps:
+      - name: Send Discord Notification
+        # *** UPDATED TO tsickert/discord-webhook@v7.0.0 ***
+        uses: tsickert/discord-webhook@v7.0.0 
+        with:
+          # This action requires the hyphenated 'webhook-url' parameter
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          
+          # Use 'content' for the main message body
+          content: |
+            :gear: **ZMK Build & Commit Report**
+            
+            **Final Status:** ${{ needs.commit_artifacts.result }} (Build: ${{ needs.build.result }})
+            
+            Repository: `${{ github.repository }}`
+            Branch: `${{ github.ref_name }}`
+            
+            ${{ needs.commit_artifacts.outputs.artifact_files }}
+            
+            [View Workflow Run Details](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
