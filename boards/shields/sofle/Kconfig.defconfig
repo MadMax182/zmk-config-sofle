@@ -1,28 +1,18 @@
-# Copyright (c) 2020 Ryan Cross
-# SPDX-License-Identifier: MIT
-
 if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_DONGLE_PRO_MICRO
 
 config ZMK_KEYBOARD_NAME
     default "Sofle"
 
-config BT_DEVICE_NAME
-    default "Sofle"
-
-config BT_DIS_MODEL
-    default "Sofle" 
-
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-endif ##SHIELD_SOFLE_LEFT || SHIELD_SOFLE_DONGLE_PRO_MICRO
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
 
-if SHIELD_SOFLE_RIGHT
+config BT_MAX_CONN
+    default 5
 
-config I2C
-    default y
-
-endif
+endif ##SHIELD_SOFLE_DONGLE_PRO_MICRO
 
 
 if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT || SHIELD_SOFLE_LEFT_PERIPHERAL || SHIELD_SOFLE_DONGLE_PRO_MICRO
@@ -33,6 +23,8 @@ config ZMK_POINTING
 config ZMK_SPLIT
     default y
 
+
+
 if ZMK_DISPLAY
 
 config I2C
@@ -41,16 +33,18 @@ config I2C
 config SSD1306
     default y
 
-if SHIELD_SOFLE_DONGLE_XIAO || SHIELD_SOFLE_DONGLE_PRO_MICRO
-
-choice ZMK_DISPLAY_WORK_QUEUE
-    default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
-endchoice
-
-endif ##SHIELD_SOFLE_DONGLE_XIAO || SHIELD_SOFLE_DONGLE_PRO_MICRO
-
 endif # ZMK_DISPLAY
 
+
+
+if ZMK_RGB_UNDERGLOW
+
+config WS2812_STRIP
+    default y
+
+if #ZMK_RGB_UNDERGLOW
+
+/*
 if LVGL
 
 config LV_Z_VDB_SIZE
@@ -67,12 +61,6 @@ choice LV_COLOR_DEPTH
 endchoice
 
 endif # LVGL
-
-
-if ZMK_RGB_UNDERGLOW
-
-config WS2812_STRIP
-    default y
-endif #ZMK_RGB_UNDERGLOW
+*/
 
 endif ##SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT || SHIELD_SOFLE_LEFT_PERIPHERAL || SHIELD_SOFLE_DONGLE_PRO_MICRO
