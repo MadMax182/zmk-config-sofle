@@ -11,9 +11,6 @@ manifest:
       # cirque driver
     - name: petejohanson
       url-base: https://github.com/petejohanson/
-      # pointing acceleration
-    - name: oleksandrmaslov
-      url-base: https://github.com/oleksandrmaslov 
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -39,9 +36,5 @@ manifest:
     - name: cirque-input-module
       remote: petejohanson
       revision: main 
-    # pointing acceleration
-    - name: zmk-pointing-acceleration
-      remote: oleksandrmaslov
-      revision: main
   self:
     path: config

@@ -1,5 +1,5 @@
 ### config
-# extra_conf_file_oled_rgb= -DEXTRA_CONF_FILE=${PWD}/config/config_ready/nice/oled_rgb/corne.conf
+# extra_conf_file_oled_rgb= -DEXTRA_CONF_FILE=${PWD}/config/config_ready/nice/oled_rgb/sofle.conf
 extra_modules_dir=${PWD}
 extra_modules= -DZMK_EXTRA_MODULES="/boards"
 config=${PWD}/config
@@ -22,11 +22,13 @@ docker_opts= \
 	${zmk_image}
 
 ### name
-keyboard_name_nice= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Corne_View"'
-keyboard_name_nice_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Corne_Oled"'
+keyboard_name_nice= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_sofle_View"'
+keyboard_name_nice_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_sofle_Oled"'
 keyboard_name_nice_dongle= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Dongle"'
 keyboard_name_nice_dongle_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Dongle_O"'
 keyboard_name_nice_dongle_view= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Dongle_V"'
+
+
 
 ### west
 
@@ -37,94 +39,49 @@ west_built_nice= \
 ### shields
 shield_settings_reset= \
 	    -- -DSHIELD="settings_reset" -DZMK_CONFIG="/zmk-config"
-shield_corne_left= \
-	    -- -DSHIELD="corne_left" -DZMK_CONFIG="/zmk-config"
-shield_corne_right_view= \
-	    -- -DSHIELD="corne_right nice_view_adapter nice_view" \
+shield_sofle_left= \
+	    -- -DSHIELD="sofle_left" -DZMK_CONFIG="/zmk-config"
+shield_sofle_right_view= \
+	    -- -DSHIELD="sofle_right nice_view_adapter nice_view" \
 	    -DZMK_CONFIG="/zmk-config"
-shield_corne_right= \
-	    -- -DSHIELD="corne_right" -DZMK_CONFIG="/zmk-config"
-shield_corne_left_view= \
-	    -- -DSHIELD="corne_left nice_view_adapter nice_view" \
+shield_sofle_right= \
+	    -- -DSHIELD="sofle_right" -DZMK_CONFIG="/zmk-config"
+shield_sofle_left_view= \
+	    -- -DSHIELD="sofle_left nice_view_adapter nice_view" \
 	    -DZMK_CONFIG="/zmk-config"
-shield_xiao_corne_dongle_xiao= \
-	    -- -DSHIELD="corne_dongle_xiao" -DZMK_CONFIG="/zmk-config"
-shield_xiao_corne_dongle_xiao_dongle_display= \
-	    -- -DSHIELD="corne_dongle_xiao dongle_display" \
+shield_sofle_left_peripheral_view= \
+	    -- -DSHIELD="sofle_left_peripheral nice_view_adapter nice_view" \
 	    -DZMK_CONFIG="/zmk-config"
-shield_xiao_corne_dongle_xiao_rgbled_adapter= \
-	    -- -DSHIELD="corne_dongle_xiao rgbled_adapter" \
+shield_sofle_left_peripheral_oled= \
+	    -- -DSHIELD="sofle_left_peripheral" \
 	    -DZMK_CONFIG="/zmk-config"
-shield_xiao_corne_dongle_xiao_dongle_display_rgbled_adapter= \
-	    -- -DSHIELD="corne_dongle_xiao dongle_display rgbled_adapter" \
-	    -DZMK_CONFIG="/zmk-config"
-shield_corne_left_peripheral_view= \
-	    -- -DSHIELD="corne_left_peripheral nice_view_adapter nice_view" \
-	    -DZMK_CONFIG="/zmk-config"
-shield_corne_left_peripheral_oled= \
-	    -- -DSHIELD="corne_left_peripheral" \
-	    -DZMK_CONFIG="/zmk-config"
-shield_corne_dongle_pro_micro= \
-	    -- -DSHIELD="corne_dongle_pro_micro" -DZMK_CONFIG="/zmk-config"
-shield_corne_dongle_pro_micro_dongle_display= \
-	    -- -DSHIELD="corne_dongle_pro_micro dongle_display" -DZMK_CONFIG="/zmk-config"
+shield_sofle_dongle_pro_micro= \
+	    -- -DSHIELD="sofle_dongle_pro_micro" -DZMK_CONFIG="/zmk-config"
+shield_sofle_dongle_pro_micro_dongle_display= \
+	    -- -DSHIELD="sofle_dongle_pro_micro dongle_display" -DZMK_CONFIG="/zmk-config"
 ###  uf2
-uf2_copy_puchi_corne_settings_reset=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/puchi_corne_settings_reset.uf2
-uf2_copy_puchi_corne_left=/zmk/build/zephyr/zmk.uf2 \
-			  firmware/puchi_corne_left.uf2
-uf2_copy_puchi_corne_right=/zmk/build/zephyr/zmk.uf2 \
-			   firmware/puchi_corne_right.uf2
-uf2_copy_puchi_corne_left_peripheral_view=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/puchi_corne_left_peripheral.uf2
-uf2_copy_niceuf2_copy_puchi_corne_dongle_pro_micro=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/puchi_corne_dongle_pro_micro.uf2
-uf2_copy_puchi_corne_dongle_pro_micro_dongle_display=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/puchi_corne_dongle_pro_micro_dongle_display.uf2
-uf2_copy_nice_corne_settings_reset=/zmk/build/zephyr/zmk.uf2 \
-				   firmware/nice_corne_settings_reset.uf2
-uf2_copy_nice_corne_left=/zmk/build/zephyr/zmk.uf2 firmware/nice_corne_left.uf2
-uf2_copy_nice_corne_right=/zmk/build/zephyr/zmk.uf2 firmware/nice_corne_right.uf2
-uf2_copy_nice_corne_left_peripheral_view=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/nice_corne_left_peripheral.uf2
-uf2_copy_nice_corne_left_peripheral_oled=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/nice_corne_left_peripheral.uf2
-uf2_copy_nice_corne_dongle_pro_micro=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/nice_corne_dongle_pro_micro.uf2
-uf2_copy_nice_corne_dongle_pro_micro_dongle_display=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/nice_corne_dongle_pro_micro_dongle_display.uf2
-uf2_copy_xiao_corne_dongle_xiao=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/xiao_corne_dongle_xiao.uf2
-uf2_copy_xiao_corne_settings_reset=/zmk/build/zephyr/zmk.uf2 \
-				   firmware/xiao_corne_settings_reset.uf2
-uf2_copy_xiao_corne_dongle_xiao_dongle_display=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/xiao_corne_dongle_xiao_dongle_display.uf2
-uf2_copy_xiao_corne_dongle_xiao_rgbled_adapter=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/xiao_corne_dongle_xiao_rgbled_adapter.uf2
-uf2_copy_xiao_corne_dongle_xiao_dongle_display_rgbled_adapter=/zmk/build/zephyr/zmk.uf2 \
-				    firmware/xiao_corne_dongle_xiao_dongle_display_rgbled_adapter.uf2
-### chmod
-uf2_chmod_puchi_corne_settings_reset=chmod go+wrx \
-				     firmware/puchi_corne_settings_reset.uf2
-uf2_chmod_puchi_corne_left=chmod go+wrx firmware/puchi_corne_left.uf2
-uf2_chmod_puchi_corne_right=chmod go+wrx firmware/puchi_corne_right.uf2
-uf2_chmod_puchi_corne_left_peripheral_view=chmod go+wrx firmware/puchi_corne_left_peripheral.uf2
-uf2_chmod_puchi_corne_dongle_pro_micro=chmod go+wrx firmware/puchi_corne_dongle_pro_micro.uf2
-uf2_chmod_puchi_corne_dongle_pro_micro_dongle_display=chmod go+wrx firmware/puchi_corne_dongle_pro_micro_dongle_display.uf2
-uf2_chmod_nice_corne_settings_reset=chmod go+wrx \
-				    firmware/nice_corne_settings_reset.uf2
-uf2_chmod_nice_corne_left=chmod go+wrx firmware/nice_corne_left.uf2
-uf2_chmod_nice_corne_right=chmod go+wrx firmware/nice_corne_right.uf2
-uf2_chmod_nice_corne_left_peripheral_view=chmod go+wrx firmware/nice_corne_left_peripheral.uf2
-uf2_chmod_nice_corne_left_peripheral_oled=chmod go+wrx firmware/nice_corne_left_peripheral.uf2
-uf2_chmod_nice_corne_dongle_pro_micro=chmod go+wrx firmware/nice_corne_dongle_pro_micro.uf2
-uf2_chmod_nice_corne_dongle_pro_micro_dongle_display=chmod go+wrx firmware/nice_corne_dongle_pro_micro_dongle_display.uf2
-uf2_chmod_xiao_corne_dongle_xiao=chmod go+wrx firmware/xiao_corne_dongle_xiao.uf2
-uf2_chmod_xiao_corne_settings_reset=chmod go+wrx \
-				    firmware/xiao_corne_settings_reset.uf2
-uf2_chmod_xiao_corne_dongle_xiao_dongle_display=chmod go+wrx firmware/xiao_corne_dongle_xiao_dongle_display.uf2
-uf2_chmod_xiao_corne_dongle_xiao_rgbled_adapter=chmod go+wrx firmware/xiao_corne_dongle_xiao_rgbled_adapter.uf2
-uf2_chmod_xiao_corne_dongle_xiao_dongle_display_rgbled_adapter=chmod go+wrx firmware/xiao_corne_dongle_xiao_dongle_display_rgbled_adapter.uf2
+uf2_copy_nice_sofle_settings_reset=/zmk/build/zephyr/zmk.uf2 \
+				   firmware/nice_sofle_settings_reset.uf2
+uf2_copy_nice_sofle_left=/zmk/build/zephyr/zmk.uf2 firmware/nice_sofle_left.uf2
+uf2_copy_nice_sofle_right=/zmk/build/zephyr/zmk.uf2 firmware/nice_sofle_right.uf2
+uf2_copy_nice_sofle_left_peripheral_view=/zmk/build/zephyr/zmk.uf2 \
+				    firmware/nice_sofle_left_peripheral.uf2
+uf2_copy_nice_sofle_left_peripheral_oled=/zmk/build/zephyr/zmk.uf2 \
+				    firmware/nice_sofle_left_peripheral.uf2
+uf2_copy_nice_sofle_dongle_pro_micro=/zmk/build/zephyr/zmk.uf2 \
+				    firmware/nice_sofle_dongle_pro_micro.uf2
+uf2_copy_nice_sofle_dongle_pro_micro_dongle_display=/zmk/build/zephyr/zmk.uf2 \
+				    firmware/nice_sofle_dongle_pro_micro_dongle_display.uf2
+
+uf2_chmod_nice_sofle_settings_reset=chmod go+wrx \
+				    firmware/nice_sofle_settings_reset.uf2
+uf2_chmod_nice_sofle_left=chmod go+wrx firmware/nice_sofle_left.uf2
+uf2_chmod_nice_sofle_right=chmod go+wrx firmware/nice_sofle_right.uf2
+uf2_chmod_nice_sofle_left_peripheral_view=chmod go+wrx firmware/nice_sofle_left_peripheral.uf2
+uf2_chmod_nice_sofle_left_peripheral_oled=chmod go+wrx firmware/nice_sofle_left_peripheral.uf2
+uf2_chmod_nice_sofle_dongle_pro_micro=chmod go+wrx firmware/nice_sofle_dongle_pro_micro.uf2
+uf2_chmod_nice_sofle_dongle_pro_micro_dongle_display=chmod go+wrx firmware/nice_sofle_dongle_pro_micro_dongle_display.uf2
+
 
 clone_zmk_default:
 	if [ ! -d zmk ]; then git clone https://github.com/zmkfirmware/zmk; fi
@@ -142,124 +99,70 @@ codebase_urob: clone_zmk_urob
 		west update'
 
 ### CODEBASE_UROB START
-only_nice_corne_left_view_urob:
+only_nice_sofle_left_view_urob:
 	docker run --rm ${docker_opts} \
-		${west_built_nice} ${shield_corne_left_view} \
+		${west_built_nice} ${shield_sofle_left_view} \
 		${keyboard_name_nice} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_nice_corne_left}
-	${uf2_chmod_nice_corne_left}
-only_nice_corne_right_view_urob:
+	docker cp ${urob}:${uf2_copy_nice_sofle_left}
+	${uf2_chmod_nice_sofle_left}
+only_nice_sofle_right_view_urob:
 	docker run --rm ${docker_opts} \
-		${west_built_nice} ${shield_corne_right_view} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_nice_corne_right}
-	${uf2_chmod_nice_corne_right}
-only_puchi_corne_left_view_urob:
+		${west_built_nice} ${shield_sofle_right_view} ${extra_modules}
+	docker cp ${urob}:${uf2_copy_nice_sofle_right}
+	${uf2_chmod_nice_sofle_right}
+only_nice_sofle_left_peripheral_view_urob:
 	docker run --rm ${docker_opts} \
-		${west_built_puchi} ${shield_corne_left_view} \
-		${keyboard_name_puchi} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_puchi_corne_left}
-	${uf2_chmod_puchi_corne_left}
-only_puchi_corne_right_view_urob:
+		${west_built_nice} ${shield_sofle_left_peripheral_view} ${extra_modules}
+	docker cp ${urob}:${uf2_copy_nice_sofle_left_peripheral_view}
+	${uf2_chmod_nice_sofle_left_peripheral_view}
+only_nice_sofle_dongle_pro_micro_dongle_display_urob:
 	docker run --rm ${docker_opts} \
-		${west_built_puchi} ${shield_corne_right} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_puchi_corne_right}
-	${uf2_chmod_puchi_corne_right}
-only_nice_corne_left_peripheral_view_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_nice} ${shield_corne_left_peripheral_view} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_nice_corne_left_peripheral_view}
-	${uf2_chmod_nice_corne_left_peripheral_view}
-only_puchi_corne_left_peripheral_view_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_puchi} ${shield_corne_left_peripheral_view} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_puchi_corne_left_peripheral_view}
-	${uf2_chmod_puchi_corne_left_peripheral_view}
-only_nice_corne_dongle_pro_micro_dongle_display_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_nice} ${shield_corne_dongle_pro_micro_dongle_display} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_nice_corne_dongle_pro_micro_dongle_display}
-	${uf2_chmod_nice_corne_dongle_pro_micro_dongle_display}
-only_puchi_corne_dongle_pro_micro_dongle_display_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_puchi} ${shield_corne_dongle_pro_micro_dongle_display} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_puchi_corne_dongle_pro_micro_dongle_display}
-	${uf2_chmod_puchi_corne_dongle_pro_micro_dongle_display}
-only_corne_xiao_corne_dongle_xiao_dongle_display_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_xiao} ${shield_xiao_corne_dongle_xiao_dongle_display} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_xiao_corne_dongle_xiao_dongle_display}
-	${uf2_chmod_xiao_corne_dongle_xiao_dongle_display}
+		${west_built_nice} ${shield_sofle_dongle_pro_micro_dongle_display} ${extra_modules}
+	docker cp ${urob}:${uf2_copy_nice_sofle_dongle_pro_micro_dongle_display}
+	${uf2_chmod_nice_sofle_dongle_pro_micro_dongle_display}
 only_nice_settings_reset_urob:
 	docker run --rm ${docker_opts} \
 		${west_built_nice} ${shield_settings_reset}
-	docker cp ${urob}:${uf2_copy_nice_corne_settings_reset}
-	${uf2_chmod_nice_corne_settings_reset}
-only_puchi_settings_reset_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_puchi} ${shield_settings_reset}
-	docker cp ${urob}:${uf2_copy_puchi_corne_settings_reset}
-	${uf2_chmod_puchi_corne_settings_reset}
-only_xiao_settings_reset_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_xiao} ${shield_settings_reset}
-	docker cp ${urob}:${uf2_copy_xiao_corne_settings_reset}
-	${uf2_chmod_xiao_corne_settings_reset}
+	docker cp ${urob}:${uf2_copy_nice_sofle_settings_reset}
+	${uf2_chmod_nice_sofle_settings_reset}
 
 ### MC: TODO: excluded for the moment START
-only_corne_left_peripheral_oled_urob:
+only_sofle_left_peripheral_oled_urob:
 	docker run --rm ${docker_opts} \
-		${west_built_nice} ${shield_corne_left_peripheral_oled} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_nice_corne_left_peripheral_oled}
-	${uf2_chmod_nice_corne_left_peripheral_oled}
+		${west_built_nice} ${shield_sofle_left_peripheral_oled} ${extra_modules}
+	docker cp ${urob}:${uf2_copy_nice_sofle_left_peripheral_oled}
+	${uf2_chmod_nice_sofle_left_peripheral_oled}
 	docker run --rm ${docker_opts} \
-		${west_built_puchi} ${shield_corne_left_peripheral_oled} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_puchi_corne_left_peripheral_oled}
-	${uf2_chmod_puchi_corne_left_peripheral_oled}
-only_corne_dongle_pro_micro_urob:
+		${west_built_puchi} ${shield_sofle_left_peripheral_oled} ${extra_modules}
+	docker cp ${urob}:${uf2_copy_puchi_sofle_left_peripheral_oled}
+	${uf2_chmod_puchi_sofle_left_peripheral_oled}
+only_sofle_dongle_pro_micro_urob:
 	docker run --rm ${docker_opts} \
-		${west_built_nice} ${shield_corne_dongle_pro_micro} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_nice_corne_dongle_pro_micro}
-	${uf2_chmod_nice_corne_dongle_pro_micro}
+		${west_built_nice} ${shield_sofle_dongle_pro_micro} ${extra_modules}
+	docker cp ${urob}:${uf2_copy_nice_sofle_dongle_pro_micro}
+	${uf2_chmod_nice_sofle_dongle_pro_micro}
 	docker run --rm ${docker_opts} \
-		${west_built_puchi} ${shield_corne_dongle_pro_micro} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_puchi_corne_dongle_pro_micro}
-	${uf2_chmod_puchi_corne_dongle_pro_micro}
-only_corne_xiao_corne_dongle_xiao_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_xiao} ${shield_xiao_corne_dongle_xiao} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_xiao_corne_dongle_xiao}
-	${uf2_chmod_xiao_corne_dongle_xiao}
-### MC: TODO: excluded for the moment END
+		${west_built_puchi} ${shield_sofle_dongle_pro_micro} ${extra_modules}
+	docker cp ${urob}:${uf2_copy_puchi_sofle_dongle_pro_micro}
+	${uf2_chmod_puchi_sofle_dongle_pro_micro}
 
-### MC: rgbled_adapter TODO: START
-only_corne_xiao_corne_dongle_xiao_rgbled_adapter_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_xiao} ${shield_xiao_corne_dongle_xiao_rgbled_adapter} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_xiao_corne_dongle_xiao_rgbled_adapter}
-	${uf2_chmod_xiao_corne_dongle_xiao_rgbled_adapter}
-only_corne_xiao_corne_dongle_xiao_dongle_display_rgbled_adapter_urob:
-	docker run --rm ${docker_opts} \
-		${west_built_xiao} ${shield_xiao_corne_dongle_xiao_dongle_display_rgbled_adapter} ${extra_modules}
-	docker cp ${urob}:${uf2_copy_xiao_corne_dongle_xiao_dongle_display_rgbled_adapter}
-	${uf2_chmod_xiao_corne_dongle_xiao_dongle_display_rgbled_adapter}
-### MC: rgbled_adapter TODO: END
 
-only_corne_left_view_urob: only_nice_corne_left_view_urob \
-	only_puchi_corne_left_view_urob
-only_corne_right_view_urob: only_nice_corne_right_view_urob \
-	only_puchi_corne_right_view_urob
-only_corne_left_peripheral_view_urob: only_nice_corne_left_peripheral_view_urob \
-	only_puchi_corne_left_peripheral_view_urob
-only_corne_dongle_pro_micro_dongle_display_urob: only_nice_corne_dongle_pro_micro_dongle_display_urob \
-						only_puchi_corne_dongle_pro_micro_dongle_display_urob
+only_sofle_left_view_urob: only_nice_sofle_left_view_urob \
+	only_puchi_sofle_left_view_urob
+only_sofle_right_view_urob: only_nice_sofle_right_view_urob \
+	only_puchi_sofle_right_view_urob
+only_sofle_left_peripheral_view_urob: only_nice_sofle_left_peripheral_view_urob \
+	only_puchi_sofle_left_peripheral_view_urob
+only_sofle_dongle_pro_micro_dongle_display_urob: only_nice_sofle_dongle_pro_micro_dongle_display_urob \
+						only_puchi_sofle_dongle_pro_micro_dongle_display_urob
 settings_reset_urob: only_nice_settings_reset_urob \
 	only_puchi_settings_reset_urob \
 	only_xiao_settings_reset_urob
-corne_urob: only_corne_left_view_urob \
-	only_corne_right_view_urob \
-	only_corne_left_peripheral_view_urob \
-	only_corne_dongle_pro_micro_dongle_display_urob \
-	only_corne_xiao_corne_dongle_xiao_dongle_display_urob \
+sofle_urob: only_sofle_left_view_urob \
+	only_sofle_right_view_urob \
+	only_sofle_left_peripheral_view_urob \
+	only_sofle_dongle_pro_micro_dongle_display_urob \
+	only_sofle_xiao_sofle_dongle_xiao_dongle_display_urob \
 	settings_reset_urob
 ### CODEBASE_UROB END
 
@@ -268,25 +171,25 @@ shell:
 	docker run --rm ${docker_opts} /bin/bash
 
 # Flash the appropriate firmware to the bootloader
-nice_corne_flash_left:
+nice_sofle_flash_left:
 	@ printf "Waiting for ${nice} bootloader to appear at ${nice_mount}.."
 	@ while [ ! -d ${nice_mount} ]; do sleep 1; printf "."; done; printf "\n"
-	cp -av firmware/nice_corne_left.uf2 ${nice_mount}
+	cp -av firmware/nice_sofle_left.uf2 ${nice_mount}
 
-nice_corne_flash_right:
+nice_sofle_flash_right:
 	@ printf "Waiting for ${nice} bootloader to appear at ${nice_mount}.."
 	@ while [ ! -d ${nice_mount} ]; do sleep 1; printf "."; done; printf "\n"
-	cp -av firmware/nice_corne_right.uf2 ${nice_mount}
+	cp -av firmware/nice_sofle_right.uf2 ${nice_mount}
 
-puchi_corne_flash_left:
+puchi_sofle_flash_left:
 	@ printf "Waiting for ${puchi} bootloader to appear at ${puchi_mount}.."
 	@ while [ ! -d ${puchi_mount} ]; do sleep 1; printf "."; done; printf "\n"
-	cp -av firmware/puchi_corne_left.uf2 ${puchi_mount}
+	cp -av firmware/puchi_sofle_left.uf2 ${puchi_mount}
 
-puchi_corne_flash_right:
+puchi_sofle_flash_right:
 	@ printf "Waiting for ${puchi} bootloader to appear at ${puchi_mount}.."
 	@ while [ ! -d ${puchi_mount} ]; do sleep 1; printf "."; done; printf "\n"
-	cp -av firmware/puchi_corne_right.uf2 ${puchi_mount}
+	cp -av firmware/puchi_sofle_right.uf2 ${puchi_mount}
 
 clean_firmware:
 	find firmware/*.uf2 -type f -delete
