@@ -1,36 +1,3 @@
-# ========================================
-# FileName: Makefile
-# Date: 07.03.2023
-# Author: Marcos Chow Castro
-# Email: mctechnology170318@gmail.com
-# GitHub: https://github.com/mctechnology17
-# Brief: Makefile for ZMK firmware with Docker
-# Shields: corne sofle splitkb_aurora_sofle
-# Boards: nice_nano_v2 puchi_ble_v1 seeeduino_xiao_ble
-# =========================================
-#                              ╔═╦═╦═╗
-#                       ╔════╗ ║║║║║╔╝
-#                       ║╔╗╔╗║ ║║║║║╚╗
-#                       ╚╝║║╚╝ ║╠═╩╩═╝
-#                         ║╠═╦═╣╚╦═╦╦═╦╗╔═╦═╦╦╗
-#                         ║║╩╣═╣║║║║║╬║╚╣╬║╬║║║
-#                         ╚╩═╩═╩╩╩╩═╩═╩═╩═╬╗╠╗║
-#                                         ╚═╩═╝
-# to update the branch
-# https://hub.docker.com/r/zmkfirmware/zmk-dev-arm/tags
-# https://github.com/zmkfirmware/zmk/blob/main/.devcontainer/Dockerfile
-# docker pull zmkfirmware/zmk-dev-arm:3.2-branch
-#
-# CUSTOM BRANCH EXAMPLE:
-# git clone https://github.com/petejohanson/zmk -b v3.4.0+zmk-fixes
-#
-# WIDGET BRANCH ANIMATED
-# cmake-args: -DKEYMAP_FILE=../../config/other-corne.keymap -DCONFIG_ZMK_KEYBOARD_NAME=\"other-corne\" -DEXTRA_CONF_FILE=../../config/other-corne.conf
-# /Users/marcos/zmk-privat/config/config_ready/nice/oled_rgb/corne.conf
-# -DKEYMAP_FILE=../../config/other-corne.keymap -DCONFIG_ZMK_KEYBOARD_NAME=\"other-corne\" -DEXTRA_CONF_FILE=../../config/other-corne.conf
-# module:
-# https://github.com/caksoylar/zmk-rgbled-widget
-
 ### config
 # extra_conf_file_oled_rgb= -DEXTRA_CONF_FILE=${PWD}/config/config_ready/nice/oled_rgb/corne.conf
 extra_modules_dir=${PWD}
@@ -38,11 +5,9 @@ extra_modules= -DZMK_EXTRA_MODULES="/boards"
 config=${PWD}/config
 nice_mount=/Volumes/NICENANO
 puchi_mount=/Volumes/NRF52BOOT
-xiao_mount=/Volumes/XIAO-SENSE
 zmk_image=zmkfirmware/zmk-dev-arm:3.5
 nice=nice_nano_v2
 puchi=puchi_ble_v1
-xiao=seeeduino_xiao_ble
 urob=zmk-codebase_urob
 default=zmk-codebase_default
 # --name zmk-$@ is for codebase_urob, for example: zmk-codebase_urob
@@ -62,27 +27,12 @@ keyboard_name_nice_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Corne_Oled"'
 keyboard_name_nice_dongle= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Dongle"'
 keyboard_name_nice_dongle_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Dongle_O"'
 keyboard_name_nice_dongle_view= '-DCONFIG_ZMK_KEYBOARD_NAME="Nice_Dongle_V"'
-keyboard_name_puchi_view= '-DCONFIG_ZMK_KEYBOARD_NAME="Puchi_Corne_View"'
-keyboard_name_puchi_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Puchi_Corne_Oled"'
-keyboard_name_puchi_dongle= '-DCONFIG_ZMK_KEYBOARD_NAME="Puchi_Dongle"'
-keyboard_name_puchi_dongle_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Puchi_Dongle_O"'
-keyboard_name_puchi_dongle_view= '-DCONFIG_ZMK_KEYBOARD_NAME="Puchi_Dongle_V"'
-keyboard_name_xiao_dongle= '-DCONFIG_ZMK_KEYBOARD_NAME="Xiao_Dongle"'
-keyboard_name_xiao_dongle_oled= '-DCONFIG_ZMK_KEYBOARD_NAME="Xiao_Dongle_O"'
-keyboard_name_xiao_dongle_view= '-DCONFIG_ZMK_KEYBOARD_NAME="Xiao_Dongle_V"'
 
 ### west
-west_built_puchi= \
-	    west build /zmk/app \
-	    --pristine --board "${puchi}"
 
 west_built_nice= \
 	    west build /zmk/app \
 	    --pristine --board "${nice}"
-
-west_built_xiao= \
-	    west build /zmk/app \
-	    --pristine --board "${xiao}"
 
 ### shields
 shield_settings_reset= \
