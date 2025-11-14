@@ -33,6 +33,10 @@
 	};
 };
 
+&zmk_power {
+    status = "okay";
+};
+
 
 &left_encoder {
     status = "okay";
