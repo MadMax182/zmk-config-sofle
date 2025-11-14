@@ -2,24 +2,24 @@ include:
 
   - board: nice_nano_v2
     shield: sofle_right nice_oled
-    artifact-name: nice_sofle_right_oled
+    artifact-name: sofle_right
     snippet: zmk-usb-logging
 
   # peripheral_left
   - board: nice_nano_v2
     shield: sofle_left_peripheral nice_oled
-    artifact-name: nice_sofle_left_peripheral_oled
+    artifact-name: sofle_left
     snippet: zmk-usb-logging
 
   # ProMicro_Dongle
   - board: nice_nano_v2
     shield: sofle_dongle_pro_micro dongle_display
-    artifact-name: nice_sofle_dongle_oled
+    artifact-name: sofle_dongle
     snippet: zmk-usb-logging
   ### SOFLEV2 SOFLEV1 SOFLEPLUS END ###
 
   ### SETTINGS_RESET START ###
   - board: nice_nano_v2
     shield: settings_reset
-    artifact-name: nice_settings_reset
+    artifact-name: settings_reset
   ### SETTINGS_RESET END ###
