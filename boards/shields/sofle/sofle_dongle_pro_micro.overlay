@@ -41,7 +41,7 @@
     };
 };
 
-&&glidepoint_listener {
+&glidepoint_listener {
     status = "okay";
     input-processors = <
         &pointer_accel
