@@ -1,7 +1,7 @@
 include:
 
   - board: nice_nano_v2
-    shield: sofle_right_peripheral nice_oled cirque_pinnacle_trackpad
+    shield: sofle_right_peripheral nice_oled
     artifact-name: sofle_right
     snippet: zmk-usb-logging
 
