@@ -11,6 +11,9 @@ manifest:
       # cirque driver
     - name: petejohanson
       url-base: https://github.com/petejohanson/
+    # input processors
+    - name: halfdane
+      url-base: https://github.com/halfdane/
     # pointing acceleration
     - name: oleksandrmaslov
       url-base: https://github.com/oleksandrmaslov   
@@ -38,6 +41,10 @@ manifest:
     # cirque driver
     - name: cirque-input-module
       remote: petejohanson
+      revision: main
+    # input processors
+    - name: zmk-input-gestures
+      remote: halfdane
       revision: main
     # pointing acceleration
     - name: zmk-pointing-acceleration
