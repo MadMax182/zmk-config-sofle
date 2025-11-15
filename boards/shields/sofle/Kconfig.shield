@@ -1,7 +1,7 @@
 config SHIELD_SOFLE_LEFT
     def_bool $(shields_list_contains,sofle_left)
 
-config SHIELD_SOFLE_RIGHT
+config SHIELD_SOFLE_RIGHT_PERIPHERAL
     def_bool $(shields_list_contains,sofle_right_peripheral)
 
 config SHIELD_SOFLE_LEFT_PERIPHERAL
