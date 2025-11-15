@@ -41,9 +41,8 @@
     };
 };
 
-&glidepoint_listener {
+&&glidepoint_listener {
     status = "okay";
-    device = <&glidepoint>;
     input-processors = <
         &pointer_accel
         &zip_gestures
