@@ -1,3 +1,39 @@
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+#include <behaviors/input_gestures_accel.dtsi>
+#include <behaviors/input_processor_gestures.dtsi>
+
+&zip_gestures {
+    // https://github.com/halfdane/zmk-input-gestures
+
+    // Activate gestures and change their configuration as you see fit.
+    // for details, see the section below that describes all gestures and
+    // their configuration options.
+
+    // This will create a mouseclick if your touch is short enough.
+    // if you're running in relative mode and don't use no-taps, this might
+    // result in duplicate taps
+
+    //tap-detection;
+    //tap-timout-ms=<120>;
+
+    inertial-cursor;
+    inertial-cursor-velocity-threshold=<1>;
+    inertial-cursor-decay-percent=<90>;
+};
+
+&pointer_accel {
+    // https://github.com/oleksandrmaslov/zmk-pointing-acceleration
+    
+    input-type = <INPUT_EV_REL>;  // For relative input devices
+    track-remainders;             // Accumulate fractional movements
+    min-factor = <1000>;          // 0.8x at very slow speeds
+    max-factor = <20000>;         // 3.0x at fast speeds
+    speed-threshold = <100>;     // counts/sec for 1x
+    speed-max = <500>;          // 6000 counts/sec for max accel
+    acceleration-exponent = <2>;  // Quadratic acceleration curve
+};
+
 / {
     split_inputs {
         #address-cells = <1>;
@@ -9,7 +45,7 @@
         };
     };
 
-    glidepoint0_listener: glidepoint0_listener {
+    glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
 

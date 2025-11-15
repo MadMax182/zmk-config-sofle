@@ -2,6 +2,7 @@
 #include <layouts/josefadamcik/sofle.dtsi>
 #include <dt-bindings/zmk/pointing.h>
 #include "nice_nano_v2.overlay"
+#include "split_inputs.dtsi"
 
 &josefadamcik_sofle_layout {
     transform = <&default_transform>;

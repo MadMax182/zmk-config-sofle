@@ -1,4 +1,5 @@
 #include "sofle.dtsi"
+#include "split_inputs.dtsi"
 
 &default_transform {
     col-offset = <6>;
@@ -51,6 +52,30 @@
         prechargep = <0x22>;
     };
 
+    glidepoint: glidepoint@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2A>;
+        status = "okay";
+        dr-gpios = <&pro_micro 4 (GPIO_ACTIVE_HIGH)>;
+
+        sensitivity = "1x"; //1x, 2x, 3x, 4x
+        //rotate-90;
+        //x-invert;
+        //y-invert;
+        //sleep;
+        //no-secondary-tap;
+        no-taps;
+        //x-axis-z-min = 5; //default 5, malformed value error
+        //y-axis-z-min = 4; // default 4, malformed value error
+    };
+
+};
+
+// Overrides for the input-split child node
+&glidepoint_split {
+    device = <&glidepoint>;
+    // Optional
+    // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
 
 &right_encoder {
