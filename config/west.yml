@@ -9,14 +9,14 @@ manifest:
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
       # cirque driver
-    - name: petejohanson
-      url-base: https://github.com/petejohanson/
+    - name: juniorz
+      url-base: https://github.com/juniorz
     # input processors
     - name: halfdane
       url-base: https://github.com/halfdane/
     # pointing acceleration
     - name: oleksandrmaslov
-      url-base: https://github.com/oleksandrmaslov   
+      url-base: https://github.com/oleksandrmaslov
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -39,9 +39,10 @@ manifest:
       remote: mctechnology17
       revision: main
     # cirque driver
-    - name: cirque-input-module
-      remote: petejohanson
+    - name: zmk-keyboard-cirque-pinnacle
+      remote: juniorz
       revision: main
+      import: west.yml
     # input processors
     - name: zmk-input-gestures
       remote: halfdane
