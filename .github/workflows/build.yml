@@ -65,24 +65,6 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
           
           echo "File list stored in output."
-
-
-      - name: Commit and Push Artifacts
-        run: |
-          # Set up the Git user identity for the commit
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          
-          # Add all files in the downloaded artifact directory.
-          git add -A firmware/
-          
-            git pull --rebase
-            
-            # Push the changes back to the original branch
-            git push
-          else
-            echo "No changes detected in artifacts. Skipping commit."
-          fi
           
   # 3. Job to send a Discord notification upon completion.
   notify:
