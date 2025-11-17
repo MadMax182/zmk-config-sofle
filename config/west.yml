@@ -8,9 +8,15 @@ manifest:
     # nice_oled - nice_epaper - dongle_display!view - oled Adapter
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+      # cirque driver
+    - name: petejohanson
+      url-base: https://github.com/petejohanson/
     # input processors
     - name: halfdane
-      url-base: https://github.com/halfdane/  
+      url-base: https://github.com/halfdane/
+    # pointing acceleration
+    - name: oleksandrmaslov
+      url-base: https://github.com/oleksandrmaslov   
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -32,17 +38,17 @@ manifest:
     - name: zmk-oled-adapter
       remote: mctechnology17
       revision: main
+    # cirque driver
+    - name: cirque-input-module
+      remote: petejohanson
+      revision: main
     # input processors
     - name: zmk-input-gestures
       remote: halfdane
       revision: main
-    # input processors
-    - name: zmk-input-processors
-      remote: halfdane
+    # pointing acceleration
+    - name: zmk-pointing-acceleration
+      remote: oleksandrmaslov
       revision: main
-    # cirque driver
-    - name: cirque-input-module
-      remote: halfdane
-      revision: absolute_mode
   self:
     path: config

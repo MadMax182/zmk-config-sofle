@@ -1,17 +1,18 @@
-#include <behaviors/input_processor_gestures.dtsi>
-#include <behaviors/input_processor_absolute_to_relative.dtsi>
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+#include <behaviors/input_gestures_accel.dtsi>
 
-// &pointer_accel {
-//     // https://github.com/oleksandrmaslov/zmk-pointing-acceleration
+&pointer_accel {
+    // https://github.com/oleksandrmaslov/zmk-pointing-acceleration
     
-//     input-type = <INPUT_EV_REL>;  // For relative input devices
-//     track-remainders;             // Accumulate fractional movements
-//     min-factor = <1000>;          // 0.8x at very slow speeds
-//     max-factor = <20000>;         // 3.0x at fast speeds
-//     speed-threshold = <100>;     // counts/sec for 1x
-//     speed-max = <500>;          // 6000 counts/sec for max accel
-//     acceleration-exponent = <2>;  // Quadratic acceleration curve
-// };
+    input-type = <INPUT_EV_REL>;  // For relative input devices
+    track-remainders;             // Accumulate fractional movements
+    min-factor = <1000>;          // 0.8x at very slow speeds
+    max-factor = <20000>;         // 3.0x at fast speeds
+    speed-threshold = <100>;     // counts/sec for 1x
+    speed-max = <500>;          // 6000 counts/sec for max accel
+    acceleration-exponent = <2>;  // Quadratic acceleration curve
+};
 
 / {
     split_inputs {
