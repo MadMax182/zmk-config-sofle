@@ -47,9 +47,9 @@
 
         sensitivity = "2x"; //1x, 2x, 3x, 4x
         rotate-90;
-        //x-invert;
-        y-invert;
-        sleep;
+        x-invert;
+        //y-invert;
+        //sleep;
         //no-secondary-tap;
         no-taps;
         //x-axis-z-min = 5; //default 5, malformed value error
