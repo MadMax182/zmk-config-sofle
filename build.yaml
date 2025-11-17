@@ -15,8 +15,8 @@ include:
   - board: nice_nano_v2
     shield: sofle_dongle_pro_micro dongle_display
     artifact-name: sofle_dongle
-    # snippet: zmk-usb-logging
-    
+    snippet: zmk-usb-logging
+
   ### SOFLEV2 SOFLEV1 SOFLEPLUS END ###
 
   ### SETTINGS_RESET START ###
