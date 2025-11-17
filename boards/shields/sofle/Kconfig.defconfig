@@ -6,7 +6,6 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-
 config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 2
 
@@ -16,26 +15,32 @@ config BT_MAX_CONN
 config ZMK_POINTING
     default y
 
+config I2C
+    default y
+
+config SSD1306
+    default y
+
 endif ##SHIELD_SOFLE_DONGLE_PRO_MICRO
+
 
 
 if SHIELD_SOFLE_RIGHT_PERIPHERAL
 
+config I2C
+    default y
+
 config ZMK_POINTING
     default y
 
-config I2C
+config WS2812_STRIP
     default y
 
 endif
 
 
-if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT_PERIPHERAL || SHIELD_SOFLE_LEFT_PERIPHERAL || SHIELD_SOFLE_DONGLE_PRO_MICRO
 
-config ZMK_SPLIT
-    default y
-
-if ZMK_DISPLAY
+if SHIELD_SOFLE_LEFT_PERIPHERAL
 
 config I2C
     default y
@@ -43,16 +48,16 @@ config I2C
 config SSD1306
     default y
 
-endif # ZMK_DISPLAY
-
-
-
-if ZMK_RGB_UNDERGLOW
-
 config WS2812_STRIP
     default y
 
-endif ##ZMK_RGB_UNDERGLOW
+endif
 
+
+
+if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT_PERIPHERAL || SHIELD_SOFLE_LEFT_PERIPHERAL || SHIELD_SOFLE_DONGLE_PRO_MICRO
+
+config ZMK_SPLIT
+    default y
 
 endif ##SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT_PERIPHERAL || SHIELD_SOFLE_LEFT_PERIPHERAL || SHIELD_SOFLE_DONGLE_PRO_MICRO
