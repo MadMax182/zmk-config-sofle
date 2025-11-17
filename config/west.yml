@@ -10,10 +10,7 @@ manifest:
       url-base: https://github.com/mctechnology17
     # input processors
     - name: halfdane
-      url-base: https://github.com/halfdane/
-    # pointing acceleration
-    - name: oleksandrmaslov
-      url-base: https://github.com/oleksandrmaslov   
+      url-base: https://github.com/halfdane/  
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -35,10 +32,6 @@ manifest:
     - name: zmk-oled-adapter
       remote: mctechnology17
       revision: main
-    # cirque driver
-    - name: cirque-input-module
-      remote: halfdane
-      revision: absolute_mode
     # input processors
     - name: zmk-input-gestures
       remote: halfdane
@@ -47,9 +40,9 @@ manifest:
     - name: zmk-input-processors
       remote: halfdane
       revision: main
-    # pointing acceleration
-    - name: zmk-pointing-acceleration
-      remote: oleksandrmaslov
-      revision: main
+    # cirque driver
+    - name: cirque-input-module
+      remote: halfdane
+      revision: absolute_mode
   self:
     path: config
