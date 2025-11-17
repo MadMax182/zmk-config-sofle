@@ -42,8 +42,12 @@ manifest:
     - name: cirque-input-module
       remote: petejohanson
       revision: main
-    # input processors
+    # input gestures
     - name: zmk-input-gestures
+      remote: halfdane
+      revision: main
+    # input processors
+    - name: zmk-input-processors
       remote: halfdane
       revision: main
     # pointing acceleration
