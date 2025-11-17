@@ -45,10 +45,10 @@
         status = "okay";
         dr-gpios = <&pro_micro 4 (GPIO_ACTIVE_HIGH)>;
 
-        sensitivity = "1x"; //1x, 2x, 3x, 4x
-        //rotate-90;
+        sensitivity = "2x"; //1x, 2x, 3x, 4x
+        rotate-90;
         //x-invert;
-        //y-invert;
+        y-invert;
         sleep;
         //no-secondary-tap;
         no-taps;
