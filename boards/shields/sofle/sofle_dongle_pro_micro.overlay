@@ -2,6 +2,7 @@
 // #include <layouts/josefadamcik/sofle.dtsi>
 #include "sofle.dtsi"
 #include "split_inputs.dtsi"
+#include <input/processors.dtsi>
 
 &josefadamcik_sofle_layout {
     transform = <&default_transform>;
@@ -46,6 +47,7 @@
     status = "okay";
     input-processors = <
         &pointer_accel
+        &zip_temp_layer 1 250
 	>;
 };
 
