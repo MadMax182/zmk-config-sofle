@@ -24,6 +24,26 @@
             flavor = "balanced";
             require-prior-idle-ms = <125>;
         };
+
+        shift_tap: shift_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+        };
+
+        home_shift: home_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_SHIFT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     combos {
@@ -46,11 +66,11 @@
         DVORAK {
             display-name = "DVRK";
             bindings = <
-&trans             &kp N1                   &kp N2               &kp N3                &kp N4                 &kp N5                                     &kp N6       &kp N7                &kp N8                &kp N9                    &kp N0                    &to 4
-&kp LEFT_BRACKET   &kp SQT                  &kp COMMA            &kp PERIOD            &kp P                  &kp Y                                      &kp F        &kp G                 &kp C                 &kp R                     &kp L                     &kp SLASH
-&kp EQUAL          &homerow_mod LEFT_GUI A  &homerow_mod LALT O  &homerow_mod LCTRL E  &homerow_mod LSHIFT U  &kp I                                      &kp D        &homerow_mod RSHFT H  &homerow_mod RCTRL T  &homerow_mod RIGHT_ALT N  &homerow_mod RIGHT_GUI S  &kp MINUS
-&kp RIGHT_BRACKET  &kp SEMICOLON            &kp Q                &kp J                 &kp K                  &kp X      &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M                 &kp W                 &kp V                     &kp Z                     &kp BACKSLASH
-                                            &trans               &kp LEFT_GUI          &kp BACKSPACE          &lt 1 TAB  &lt 3 ESCAPE    &lt 3 ENTER     &lt 1 SPACE  &kp DELETE            &kp RIGHT_GUI         &trans
+&trans             &kp N1                   &kp N2               &kp N3                &kp N4                &kp N5                                                           &kp N6       &kp N7               &kp N8                &kp N9                    &kp N0                    &to 4
+&kp LEFT_BRACKET   &kp SQT                  &kp COMMA            &kp PERIOD            &kp P                 &kp Y                                                            &kp F        &kp G                &kp C                 &kp R                     &kp L                     &kp SLASH
+&kp EQUAL          &homerow_mod LEFT_GUI A  &homerow_mod LALT O  &homerow_mod LCTRL E  &home_shift LSHIFT U  &kp I                                                            &kp D        &home_shift RSHFT H  &homerow_mod RCTRL T  &homerow_mod RIGHT_ALT N  &homerow_mod RIGHT_GUI S  &kp MINUS
+&kp RIGHT_BRACKET  &kp SEMICOLON            &kp Q                &kp J                 &kp K                 &kp X                            &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M                &kp W                 &kp V                     &kp Z                     &kp BACKSLASH
+                                            &trans               &kp LEFT_GUI          &kp TAB               &shift_tap LEFT_SHIFT BACKSPACE  &lt 1 ESCAPE    &lt 3 ENTER     &lt 1 SPACE  &kp DELETE           &kp RIGHT_GUI         &trans
             >;
 
             sensor-bindings = <&Volume>;
