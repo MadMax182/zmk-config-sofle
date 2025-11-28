@@ -106,14 +106,6 @@
             #sensor-binding-cells = <0>;
             bindings = <&INC_ES>, <&DEC_ES>;
         };
-
-        SOFT_OFF_1s: SOFT_OFF_1s {
-            compatible = "zmk,behavior-soft-off";
-            label = "SOFT_OFF_1S";
-            #binding-cells = <0>;
-            hold-time-ms = <1000>;
-            split-peripheral-off-on-press;
-        };
     };
 
     combos {
@@ -145,11 +137,11 @@
         DVORAK {
             display-name = "DVRK";
             bindings = <
-&kp ESCAPE  &kp N1         &kp N2      &kp N3         &kp N4        &kp N5                                                     &kp N6       &kp N7       &kp N8       &kp N9           &kp N0  &trans
-&kp TAB     &kp SQT        &kp COMMA   &kp PERIOD     &kp P         &kp Y                                                      &kp F        &kp G        &kp C        &kp R            &kp L   &kp SLASH
-&kp EQUAL   &kp A          &mt LALT O  &mt LCTRL E    &mt LSHIFT U  &kp I                                                      &kp D        &mt RSHFT H  &mt RCTRL T  &mt RIGHT_ALT N  &kp S   &kp MINUS
-&kp GRAVE   &kp SEMICOLON  &kp Q       &kp J          &kp K         &kp X               &kp C_MUTE             &sk LEFT_SHIFT  &kp B        &kp M        &kp W        &kp V            &kp Z   &kp BACKSLASH
-                           &trans      &kp BACKSPACE  &lt 2 ESCAPE  &lt 1 LEFT_BRACKET  &lt 3 RIGHT_BRACKET    &lt 3 TAB       &lt 1 SPACE  &kp ENTER    &kp DELETE   &trans
+&trans             &kp N1         &kp N2      &kp N3         &kp N4        &kp N5                                     &kp N6       &kp N7       &kp N8       &kp N9           &kp N0  &trans
+&kp LEFT_BRACKET   &kp SQT        &kp COMMA   &kp PERIOD     &kp P         &kp Y                                      &kp F        &kp G        &kp C        &kp R            &kp L   &kp SLASH
+&kp EQUAL          &kp A          &mt LALT O  &mt LCTRL E    &mt LSHIFT U  &kp I                                      &kp D        &mt RSHFT H  &mt RCTRL T  &mt RIGHT_ALT N  &kp S   &kp MINUS
+&kp RIGHT_BRACKET  &kp SEMICOLON  &kp Q       &kp J          &kp K         &kp X      &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M        &kp W        &kp V            &kp Z   &kp BACKSLASH
+                                  &trans      &kp BACKSPACE  &kp LGUI      &lt 1 TAB  &lt 3 ESCAPE    &lt 3 ENTER     &lt 1 SPACE  &kp RGUI     &kp DELETE   &trans
             >;
 
             sensor-bindings = <&Volume>, <&NAV>;
@@ -157,14 +149,16 @@
             label = "DV";
         };
 
-        layer_5 {
+        Numbers {
             bindings = <
-&trans  &trans        &trans      &trans         &trans        &trans                           &trans         &trans        &trans        &trans        &trans        &trans
-&trans  &kp N1        &kp N2      &kp N3         &kp N4        &kp N5                           &kp N6         &kp N7        &kp N8        &kp N9        &kp N0        &trans
-&trans  &kp LS(EXCL)  &kp LS(AT)  &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)                    &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp F12
-&trans  &kp F1        &kp F2      &kp F3         &kp F4        &kp F5         &trans    &trans  &kp F6         &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
-                      &trans      &trans         &trans        &trans         &trans    &trans  &trans         &trans        &trans        &trans
+&trans     &trans        &trans      &trans         &trans        &trans                           &trans         &trans        &trans        &trans        &trans        &trans
+&kp GRAVE  &kp N1        &kp N2      &kp N3         &kp N4        &kp N5                           &kp N6         &kp N7        &kp N8        &kp N9        &kp N0        &trans
+&kp TILDE  &kp LS(EXCL)  &kp LS(AT)  &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)                    &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(LPAR)  &kp LS(RPAR)  &kp F12
+&trans     &kp F1        &kp F2      &kp F3         &kp F4        &kp F5         &trans    &trans  &kp F6         &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
+                         &trans      &trans         &trans        &trans         &trans    &trans  &trans         &trans        &trans        &trans
             >;
+
+            label = "NUM";
         };
 
         Function {
@@ -183,13 +177,13 @@
         Keypad {
             bindings = <
 &trans  &trans  &trans    &trans    &trans     &trans                    &trans    &kp KP_NUMLOCK   &kp KP_SLASH  &kp KP_MULTIPLY  &kp KP_SUBTRACT  &trans
-&trans  &trans  &trans    &kp UP    &kp PG_UP  &trans                    &kp INS   &kp KP_N7        &kp KP_N8     &kp KP_N9        &kp KP_PLUS      &trans
+&trans  &trans  &kp INS   &kp UP    &kp PG_UP  &trans                    &kp INS   &kp KP_N7        &kp KP_N8     &kp KP_N9        &kp KP_PLUS      &trans
 &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans                    &kp HOME  &kp KP_N4        &kp KP_N5     &kp KP_N6        &trans           &trans
-&trans  &trans  &trans    &trans    &kp PG_DN  &trans  &trans    &trans  &kp END   &kp KP_NUMBER_1  &kp KP_N2     &kp KP_N3        &trans           &trans
+&trans  &trans  &kp END   &kp HOME  &kp PG_DN  &trans  &trans    &trans  &kp END   &kp KP_NUMBER_1  &kp KP_N2     &kp KP_N3        &trans           &trans
                 &trans    &trans    &trans     &trans  &trans    &trans  &trans    &kp KP_N0        &kp KP_DOT    &kp KP_ENTER
             >;
 
-            label = "Pad";
+            label = "PAD";
             sensor-bindings = <&Volume>, <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
