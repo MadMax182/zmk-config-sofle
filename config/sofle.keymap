@@ -7,13 +7,6 @@
 
 / {
     behaviors {
-        HSB: HSB {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "HSB";
-            #sensor-binding-cells = <0>;
-            bindings = <&DEC_HSB>, <&INC_HSB>;
-        };
-
         Volume: Volume {
             compatible = "zmk,behavior-sensor-rotate";
             label = "VOLUME";
@@ -21,90 +14,15 @@
             bindings = <&kp LS(C_VOLUME_DOWN)>, <&kp C_VOLUME_UP>;
         };
 
-        INC_HB: INC_HB {
-            compatible = "zmk,behavior-mod-morph";
-            label = "INC_HB";
-            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_HUI>;
+        homerow_mod: homerow_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MOD";
+            bindings = <&kp>, <&kp>;
 
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        DEC_HB: DEC_HB {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DEC_HB";
-            bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_HUD>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT|MOD_LSFT)>;
-        };
-
-        INC_HSB: INC_HSB {
-            compatible = "zmk,behavior-mod-morph";
-            label = "INC_HSB";
-            bindings = <&INC_HB>, <&rgb_ug RGB_SAI>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        DEC_HSB: DEC_HSB {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DEC_HSB";
-            bindings = <&DEC_HB>, <&rgb_ug RGB_SAD>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        RIGHT_UP: RIGHT_UP {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RIGHT_UP";
-            bindings = <&kp RIGHT>, <&kp UP>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        LEFT_DOWN: LEFT_DOWN {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LEFT_DOWN";
-            bindings = <&kp LEFT>, <&kp DOWN>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        NAV: NAV {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "NAV";
-            #sensor-binding-cells = <0>;
-            bindings = <&RIGHT_UP>, <&LEFT_DOWN>;
-        };
-
-        INC_ES: INC_ES {
-            compatible = "zmk,behavior-mod-morph";
-            label = "INC_ES";
-            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_SPI>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        DEC_ES: DEC_ES {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DEC_ES";
-            bindings = <&rgb_ug RGB_EFR>, <&rgb_ug RGB_SPD>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        ES: ES {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ES";
-            #sensor-binding-cells = <0>;
-            bindings = <&INC_ES>, <&DEC_ES>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
         };
     };
 
@@ -122,29 +40,20 @@
         };
     };
 
-    macros {
-        new_macro: new_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none>;
-            label = "NEW_MACRO";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         DVORAK {
             display-name = "DVRK";
             bindings = <
-&trans             &kp N1          &kp N2      &kp N3        &kp N4         &kp N5                                     &kp N6       &kp N7       &kp N8         &kp N9           &kp N0           &to 4
-&kp LEFT_BRACKET   &kp SQT         &kp COMMA   &kp PERIOD    &kp P          &kp Y                                      &kp F        &kp G        &kp C          &kp R            &kp L            &kp SLASH
-&kp EQUAL          &mt LEFT_GUI A  &mt LALT O  &mt LCTRL E   &mt LSHIFT U   &kp I                                      &kp D        &mt RSHFT H  &mt RCTRL T    &mt RIGHT_ALT N  &mt RIGHT_GUI S  &kp MINUS
-&kp RIGHT_BRACKET  &kp SEMICOLON   &kp Q       &kp J         &kp K          &kp X      &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M        &kp W          &kp V            &kp Z            &kp BACKSLASH
-                                   &trans      &kp LEFT_GUI  &kp BACKSPACE  &lt 1 TAB  &lt 3 ESCAPE    &lt 3 ENTER     &lt 1 SPACE  &kp DELETE   &kp RIGHT_GUI  &trans
+&trans             &kp N1                   &kp N2               &kp N3                &kp N4                 &kp N5                                     &kp N6       &kp N7                &kp N8                &kp N9                    &kp N0                    &to 4
+&kp LEFT_BRACKET   &kp SQT                  &kp COMMA            &kp PERIOD            &kp P                  &kp Y                                      &kp F        &kp G                 &kp C                 &kp R                     &kp L                     &kp SLASH
+&kp EQUAL          &homerow_mod LEFT_GUI A  &homerow_mod LALT O  &homerow_mod LCTRL E  &homerow_mod LSHIFT U  &kp I                                      &kp D        &homerow_mod RSHFT H  &homerow_mod RCTRL T  &homerow_mod RIGHT_ALT N  &homerow_mod RIGHT_GUI S  &kp MINUS
+&kp RIGHT_BRACKET  &kp SEMICOLON            &kp Q                &kp J                 &kp K                  &kp X      &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M                 &kp W                 &kp V                     &kp Z                     &kp BACKSLASH
+                                            &trans               &kp LEFT_GUI          &kp BACKSPACE          &lt 1 TAB  &lt 3 ESCAPE    &lt 3 ENTER     &lt 1 SPACE  &kp DELETE            &kp RIGHT_GUI         &trans
             >;
 
-            sensor-bindings = <&Volume>, <&NAV>;
+            sensor-bindings = <&Volume>, <&none>;
 
             label = "DV";
         };
@@ -171,7 +80,7 @@
             >;
 
             label = "FN";
-            sensor-bindings = <&HSB>, <&ES>;
+            sensor-bindings = <&none>, <&none>;
         };
 
         Keypad {
