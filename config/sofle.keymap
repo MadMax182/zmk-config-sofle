@@ -53,8 +53,7 @@
                                             &trans               &kp LEFT_GUI          &kp BACKSPACE          &lt 1 TAB  &lt 3 ESCAPE    &lt 3 ENTER     &lt 1 SPACE  &kp DELETE            &kp RIGHT_GUI         &trans
             >;
 
-            sensor-bindings = <&Volume>, <&none>;
-
+            sensor-bindings = <&Volume>;
             label = "DV";
         };
 
@@ -80,7 +79,6 @@
             >;
 
             label = "FN";
-            sensor-bindings = <&none>, <&none>;
         };
 
         Keypad {
@@ -93,7 +91,6 @@
             >;
 
             label = "PAD";
-            sensor-bindings = <&Volume>, <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         Gaming {
