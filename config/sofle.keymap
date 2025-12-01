@@ -53,11 +53,11 @@
         DVORAK {
             display-name = "DVRK";
             bindings = <
-&trans             &kp N1                   &kp N2               &kp N3                &kp N4                &kp N5                                                           &kp N6       &kp N7               &kp N8                &kp N9                    &kp N0                    &to 4
-&kp LEFT_BRACKET   &kp SQT                  &kp COMMA            &kp PERIOD            &kp P                 &kp Y                                                            &kp F        &kp G                &kp C                 &kp R                     &kp L                     &kp SLASH
-&kp EQUAL          &homerow_mod LEFT_GUI A  &homerow_mod LALT O  &homerow_mod LCTRL E  &home_shift LSHIFT U  &kp I                                                            &kp D        &home_shift RSHFT H  &homerow_mod RCTRL T  &homerow_mod RIGHT_ALT N  &homerow_mod RIGHT_GUI S  &kp MINUS
-&kp RIGHT_BRACKET  &kp SEMICOLON            &kp Q                &kp J                 &kp K                 &kp X                            &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M                &kp W                 &kp V                     &kp Z                     &kp BACKSLASH
-                                            &to 4                &kp LEFT_GUI          &kp TAB               &shift_tap LEFT_SHIFT BACKSPACE  &lt 1 ESCAPE    &lt 1 ENTER     &lt 3 SPACE  &kp DELETE           &kp RIGHT_GUI         &trans
+&trans                               &kp N1         &kp N2               &kp N3                &kp N4                &kp N5                                                           &kp N6       &kp N7               &kp N8                &kp N9                    &kp N0  &to 4
+&kp LEFT_BRACKET                     &kp SQT        &kp COMMA            &kp PERIOD            &kp P                 &kp Y                                                            &kp F        &kp G                &kp C                 &kp R                     &kp L   &kp SLASH
+&kp EQUAL                            &kp A          &homerow_mod LALT O  &homerow_mod LCTRL E  &home_shift LSHIFT U  &kp I                                                            &kp D        &home_shift RSHFT H  &homerow_mod RCTRL T  &homerow_mod RIGHT_ALT N  &kp S   &kp MINUS
+&homerow_mod LEFT_GUI RIGHT_BRACKET  &kp SEMICOLON  &kp Q                &kp J                 &kp K                 &kp X                            &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M                &kp W                 &kp V                     &kp Z   &homerow_mod RIGHT_GUI BACKSLASH
+                                                    &to 4                &kp LEFT_GUI          &kp TAB               &shift_tap LEFT_SHIFT BACKSPACE  &lt 1 ESCAPE    &lt 1 ENTER     &lt 3 SPACE  &kp DELETE           &kp RIGHT_GUI         &trans
             >;
 
             sensor-bindings = <&Volume>;
