@@ -49,7 +49,7 @@
         //rotate-90;
         x-invert;
         //y-invert;
-        sleep;
+        //sleep;
         //no-secondary-tap;
         no-taps;
         //x-axis-z-min = 5; //default 5, malformed value error
