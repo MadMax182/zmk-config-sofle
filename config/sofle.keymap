@@ -45,19 +45,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        home {
-            bindings = <&to 0>;
-            key-positions = <31 56>;
-        };
-
-        Game {
-            bindings = <&to 4>;
-            key-positions = <15 54>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -69,7 +57,7 @@
 &kp LEFT_BRACKET   &kp SQT                  &kp COMMA            &kp PERIOD            &kp P                 &kp Y                                                            &kp F        &kp G                &kp C                 &kp R                     &kp L                     &kp SLASH
 &kp EQUAL          &homerow_mod LEFT_GUI A  &homerow_mod LALT O  &homerow_mod LCTRL E  &home_shift LSHIFT U  &kp I                                                            &kp D        &home_shift RSHFT H  &homerow_mod RCTRL T  &homerow_mod RIGHT_ALT N  &homerow_mod RIGHT_GUI S  &kp MINUS
 &kp RIGHT_BRACKET  &kp SEMICOLON            &kp Q                &kp J                 &kp K                 &kp X                            &kp C_MUTE      &sk LEFT_SHIFT  &kp B        &kp M                &kp W                 &kp V                     &kp Z                     &kp BACKSLASH
-                                            &trans               &kp LEFT_GUI          &kp TAB               &shift_tap LEFT_SHIFT BACKSPACE  &lt 1 ESCAPE    &lt 1 ENTER     &lt 3 SPACE  &kp DELETE           &kp RIGHT_GUI         &trans
+                                            &to 4                &kp LEFT_GUI          &kp TAB               &shift_tap LEFT_SHIFT BACKSPACE  &lt 1 ESCAPE    &lt 1 ENTER     &lt 3 SPACE  &kp DELETE           &kp RIGHT_GUI         &trans
             >;
 
             sensor-bindings = <&Volume>;
@@ -90,11 +78,11 @@
 
         Function {
             bindings = <
-&kp ESCAPE  &kp F1        &kp F2          &kp F3            &kp F4        &kp F5                                   &kp F6     &kp F7     &kp F8        &kp F9     &kp F10  &kp F11
-&caps_word  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4                             &mkp LCLK  &mkp RCLK  &kp UP_ARROW  &trans     &trans   &kp F12
-&trans      &trans        &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans                                   &trans     &kp LEFT   &kp DOWN      &kp RIGHT  &trans   &trans
-&trans      &trans        &trans          &trans            &trans        &trans        &rgb_ug RGB_TOG    &trans  &trans     &trans     &trans        &trans     &trans   &trans
-                          &trans          &trans            &trans        &trans        &trans             &trans  &trans     &trans     &trans        &trans
+&kp ESCAPE  &kp F1        &kp F2          &kp F3            &kp F4        &kp F5                          &kp F6     &kp F7     &kp F8        &kp F9     &kp F10  &kp F11
+&caps_word  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4                    &mkp LCLK  &mkp RCLK  &kp UP_ARROW  &trans     &trans   &kp F12
+&trans      &trans        &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &trans                          &trans     &kp LEFT   &kp DOWN      &kp RIGHT  &trans   &trans
+&trans      &trans        &trans          &trans            &trans        &trans        &trans    &trans  &trans     &trans     &trans        &trans     &trans   &trans
+                          &trans          &trans            &trans        &trans        &trans    &trans  &trans     &trans     &trans        &trans
             >;
 
             label = "FN";
@@ -118,22 +106,10 @@
 &kp LBKT   &kp SQT   &kp COMMA  &kp DOT   &kp P      &kp Y                           &trans  &trans    &kp UP    &trans     &trans  &trans
 &kp EQUAL  &kp A     &kp O      &kp E     &kp U      &kp I                           &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
 &kp RBKT   &kp SEMI  &kp Q      &kp J     &kp K      &kp X      &trans       &trans  &trans  &trans    &trans    &trans     &trans  &trans
-                     &kp LALT   &kp RALT  &kp LSHFT  &kp RSHFT  &kp SPACE    &trans  &trans  &trans    &trans    &trans
+                     &kp LALT   &kp RALT  &kp LSHFT  &kp RSHFT  &kp SPACE    &trans  &to 0   &trans    &trans    &trans
             >;
 
             label = "Game";
-        };
-
-        Gaming_Num {
-            bindings = <
-&trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10                    &kp F11  &trans  &trans  &trans  &trans  &trans
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                     &kp F12  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &trans   &trans  &trans  &trans  &trans  &trans
-&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &trans    &trans  &trans   &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans   &trans    &trans  &trans   &trans  &trans  &trans
-            >;
-
-            label = "GNUM";
         };
     };
 };
