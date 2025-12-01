@@ -36,9 +36,6 @@ config SSD1306
 config ZMK_POINTING
     default y
 
-config WS2812_STRIP
-    default y
-
 endif
 
 
@@ -49,9 +46,6 @@ config I2C
     default y
 
 config SSD1306
-    default y
-
-config WS2812_STRIP
     default y
 
 endif
